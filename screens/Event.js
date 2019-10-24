@@ -5,7 +5,8 @@ import {
   ScrollView,
   Dimensions,
   StyleSheet,
-  Image
+  Image,
+  SafeAreaView
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -14,6 +15,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <SafeAreaView style={{ backgroundColor: 'transparent' }}/>
         <Image
           style={{ width: 50, height: 50 }}
           source={{

@@ -6,7 +6,7 @@ import {
   Dimensions,
   Modal,
   Text,
-  Button,
+  SafeAreaView,
   TouchableOpacity
 } from 'react-native';
 import MainInfo from '../components/MainInfo';
@@ -16,7 +16,7 @@ import FoodBtnTable from '../components/FoodBtnTable';
 import * as WebBrowser from 'expo-web-browser';
 import { FontAwesome } from '@expo/vector-icons';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const images = [
   {
     key: 1,
@@ -53,7 +53,30 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <SafeAreaView style={{ backgroundColor: 'transparent' }} />
         <ScrollView showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              height: Math.floor(height * 0.07), //실제 header 높이
+              flex: 1,
+              paddingLeft: Math.floor(width * 0.06),
+              backgroundColor: 'transparent',
+              justifyContent: 'flex-start',
+              flexDirection: 'row',
+              alignItems: 'center'
+            }}
+          >
+            <Text
+              style={{
+                color: '#0C2E86',
+                fontSize: Math.floor(width * 0.09),
+                fontWeight: 'bold',
+                fontFamily: 'Roboto-Bold'
+              }}
+            >
+              CUKCAT
+            </Text>
+          </View>
           <Modal
             visible={this.state.modalVisible}
             transparent={true}
@@ -88,10 +111,6 @@ export default class Home extends React.Component {
               </View>
             </View>
           </Modal>
-          <View style={{}}>
-            <Text style={{ fontSize: 25, color: 'white' }}>광고</Text>
-            {/* <Carousel images={images}></Carousel> */}
-          </View>
           <MainInfo
             openBusModal={() => this.openBusModal()}
             openFoodModal={() => this.openFoodModal()}
