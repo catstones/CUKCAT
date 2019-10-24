@@ -4,7 +4,7 @@ const mainLink = [
       title: '사이버캠퍼스',
       icon: 'book',
       color: '#1AC7C3',
-      url: 'http://e-cyber.catholic.ac.kr/ilos/m/main/login_form.acl'
+      url: 'http://e-cyber.catholic.ac.kr'
     },
     {
       title: '트리니티',
