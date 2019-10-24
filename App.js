@@ -20,9 +20,9 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
   render() {
-    let marginTop = Platform.OS === 'android' ? 0 : Constants.statusBarHeight;
+    // let marginTop = Platform.OS === 'android' ? 0 : Constants.statusBarHeight;
 
-    // let marginTop = 0;
+    let marginTop = 0;
     if (!this.state.isReady) {
       return <AppLoading />;
     }

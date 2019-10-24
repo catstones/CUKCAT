@@ -27,11 +27,6 @@ export default class LinkTable extends React.Component {
     await WebBrowser.openBrowserAsync(url, {
       showInRecents: true
     });
-    // if (Platform.OS == 'android') {
-    //   await WebBrowser.openBrowserAsync(url, { showInRecents: true });
-    // } else {
-    //   await WebBrowser.openBrowserAsync(url);
-    // }
   };
   rederRowTable(linkRow, index) {
     return (
@@ -63,7 +58,7 @@ export default class LinkTable extends React.Component {
         pagingEnabled={true}
         // snapToAlignment={'center'}
         snapToInterval={Math.floor(width * 0.825)}
-        decelerationRate={0.85}
+        decelerationRate={Platform.OS === 'android' ? 0.9 : 0.2}
       >
         <View style={[styles.linkTableContainer]}>
           <View style={styles.linkTableTitleContainer}>
