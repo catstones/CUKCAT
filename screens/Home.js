@@ -13,27 +13,10 @@ import MainInfo from '../components/MainInfo';
 import LinkTable from '../components/LinkTable';
 import BusBtnTable from '../components/BusBtnTable';
 import FoodBtnTable from '../components/FoodBtnTable';
-import * as WebBrowser from 'expo-web-browser';
+import Header from '../components/Header';
 import { FontAwesome } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
-const images = [
-  {
-    key: 1,
-    source:
-      'https://firebasestorage.googleapis.com/v0/b/cukcat-aacfa.appspot.com/o/dddd.png?alt=media&token=3b68ac2a-87f8-493d-8177-22abcad64e51'
-  },
-  {
-    key: 2,
-    source:
-      'http://mblogthumb4.phinf.naver.net/MjAxNzAxMjVfMjYz/MDAxNDg1MzQ5NjIxMDk2.LoOsq-oSKIn8NXlulM_4-IiNogTFTTZCwMiOCy1e154g.m7bYXYxlfqBvg9VM1MHqzaWqf1elVpakw_sJYZ5_c4gg.PNG.oyaubihime/025Pikachu_OS_anime_11.png?type=w800'
-  },
-  {
-    key: 3,
-    source:
-      'https://firebasestorage.googleapis.com/v0/b/cukcat-aacfa.appspot.com/o/dddd.png?alt=media&token=3b68ac2a-87f8-493d-8177-22abcad64e51'
-  }
-];
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -55,28 +38,7 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <SafeAreaView style={{ backgroundColor: 'transparent' }} />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View
-            style={{
-              height: Math.floor(height * 0.07), //실제 header 높이
-              flex: 1,
-              paddingLeft: Math.floor(width * 0.06),
-              backgroundColor: 'transparent',
-              justifyContent: 'flex-start',
-              flexDirection: 'row',
-              alignItems: 'center'
-            }}
-          >
-            <Text
-              style={{
-                color: '#0C2E86',
-                fontSize: Math.floor(width * 0.09),
-                fontWeight: 'bold',
-                fontFamily: 'Roboto-Bold'
-              }}
-            >
-              CUKCAT
-            </Text>
-          </View>
+          <Header />
           <Modal
             visible={this.state.modalVisible}
             transparent={true}
@@ -103,7 +65,7 @@ export default class Home extends React.Component {
                     />
                   </TouchableOpacity>
                 </View>
-                {this.state.modalTitle == '버스정보' ? (
+                {this.state.modalTitle === '버스정보' ? (
                   <BusBtnTable />
                 ) : (
                   <FoodBtnTable />

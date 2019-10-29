@@ -7,7 +7,7 @@ export default class Notice extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ backgroundColor: 'transparent' }}/>
+        <SafeAreaView style={{ backgroundColor: 'transparent' }} />
         <NoticeList />
       </View>
     );
@@ -17,6 +17,7 @@ export default class Notice extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 5,
     alignItems: 'center'
   }
 });

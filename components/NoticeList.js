@@ -6,8 +6,7 @@ import {
   Text,
   FlatList,
   AsyncStorage,
-  TouchableOpacity,
-  Modal
+  TouchableOpacity
 } from 'react-native';
 import _ from 'underscore';
 
@@ -23,7 +22,6 @@ export default class NoticeList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // refreshing: false,
       noticeItem: [],
       noticeType: '최근공지',
       modalVisible: false
@@ -40,7 +38,6 @@ export default class NoticeList extends React.Component {
     await AsyncStorage.setItem('Notice', JSON.stringify(storage));
   }
   getFireBaseData() {
-    console.log('111');
     db.collection('Notice').onSnapshot(querySnapshot => {
       let newList = [];
       querySnapshot.forEach(doc => {
@@ -50,11 +47,6 @@ export default class NoticeList extends React.Component {
       this.setState({ noticeItem: newList });
     });
   }
-  // onRefresh() {
-  //   this.setState({ refreshing: true });
-  //   this.getFireBaseData();
-  //   this.setState({ refreshing: false });
-  // }
   _handlePressButtonAsync = async url => {
     await WebBrowser.openBrowserAsync(url);
   };
@@ -70,11 +62,10 @@ export default class NoticeList extends React.Component {
             size={Math.floor(width * 0.06)}
             color="#FFB549"
           ></FontAwesome>
-          <TouchableOpacity
+          <View
             style={{
               width: Math.floor(width * 0.8)
             }}
-            onPress={() => this.setState({ modalVisible: true })}
           >
             <Text
               style={{
@@ -86,11 +77,9 @@ export default class NoticeList extends React.Component {
             >
               {this.state.noticeType}
             </Text>
-          </TouchableOpacity>
+          </View>
         </View>
         <FlatList
-          // refreshing={this.state.refreshing}
-          // onRefresh={() => this.onRefresh()}
           data={this.state.noticeItem}
           renderItem={({ item }) => (
             <TouchableOpacity
@@ -111,7 +100,6 @@ export default class NoticeList extends React.Component {
                     {new Date(item.writtenAt.seconds * 1000)
                       .toISOString()
                       .substr(0, 10)}
-                    {/* {item.writtenAt.toString()} */}
                   </Text>
                 </View>
                 <Text style={styles.itemTitle}>{item.title}</Text>

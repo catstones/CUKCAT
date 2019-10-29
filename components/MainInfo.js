@@ -23,22 +23,30 @@ export default class MainInfo extends React.Component {
     super(props);
     this.state = {
       dDay: null,
-      busUrl: {
-        fromStation:
-          'http://m.gbis.go.kr/search/StationArrivalViaList.do?stationId=210000416&districtCd=2&mobileNo=11406&mobileNoSi=&regionName=%EB%B6%80%EC%B2%9C&stationName=%EC%97%AD%EA%B3%A1%EC%97%AD%EB%B6%81%EB%B6%80&x=126.8116&y=37.4856167&osInfoType=M',
-        fromSchool:
-          'http://m.gbis.go.kr/search/StationArrivalViaList.do?stationId=210000422&districtCd=2&mobileNo=11426&mobileNoSi=&regionName=%EB%B6%80%EC%B2%9C&stationName=%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%EC%A0%95%EB%AC%B8&x=126.8048667&y=37.4855667&osInfoType=M'
+      mainUrl: {
+        cyberCampus: 'https://e-cyber.catholic.ac.kr',
+        trinity: 'https://uportal.catholic.ac.kr/sso/jsp/sso/ip/login_form.jsp'
       }
     };
   }
   _handlePressButtonAsync = async url => {
-    await WebBrowser.openBrowserAsync(url);
+    await WebBrowser.openBrowserAsync(url, {
+      showInRecents: true
+    });
   };
+  getDateTime() {
+    let dateTime = Math.floor(
+      (endDay.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+    );
+    if (dateTime > 0) {
+      return dateTime;
+    } else {
+      return 0;
+    }
+  }
   componentDidMount() {
     this.setState({
-      dDay: Math.floor(
-        (endDay.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-      )
+      dDay: this.getDateTime()
     });
   }
   render() {
@@ -76,7 +84,12 @@ export default class MainInfo extends React.Component {
         </View>
         <View style={styles.quickLinkContainer}>
           <View style={styles.quickRowTable}>
-            <TouchableOpacity style={styles.quickLinkBtn}>
+            <TouchableOpacity
+              style={styles.quickLinkBtn}
+              onPress={() =>
+                this._handlePressButtonAsync(this.state.mainUrl.cyberCampus)
+              }
+            >
               <MaterialIcons
                 name="school"
                 size={Math.floor(width * 0.09)}
@@ -94,7 +107,12 @@ export default class MainInfo extends React.Component {
                 사이버캠퍼스
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.quickLinkBtn}>
+            <TouchableOpacity
+              style={styles.quickLinkBtn}
+              onPress={() =>
+                this._handlePressButtonAsync(this.state.mainUrl.trinity)
+              }
+            >
               <FontAwesome
                 name="id-card"
                 size={Math.floor(width * 0.09)}
