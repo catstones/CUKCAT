@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 import Notice from '../screens/Notice';
 import Calendar from '../screens/Calendar';
-import Event from '../screens/Event';
+import Community from '../screens/Community';
 import TabBar from '../components/TabBar';
 
 const BottomTabNav = createBottomTabNavigator(
@@ -17,8 +17,8 @@ const BottomTabNav = createBottomTabNavigator(
     Calendar: {
       screen: Calendar
     },
-    Event: {
-      screen: Event
+    Community: {
+      screen: Community
     }
   },
   {

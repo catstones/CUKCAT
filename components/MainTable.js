@@ -18,7 +18,7 @@ const { width, height } = Dimensions.get('window');
 let now = new Date();
 let endDay = new Date(2019, 11, 13);
 
-export default class MainInfo extends React.Component {
+export default class MainTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

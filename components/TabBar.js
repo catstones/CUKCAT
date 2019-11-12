@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const tabBarIcon = ['home', 'bell', 'calendar-o', 'building-o'];
-const tabBarLabel = ['홈', '공지', '캘린더', '이벤트'];
+const tabBarIcon = ['home', 'bell', 'calendar-o', 'group'];
+const tabBarLabel = ['홈', '공지', '캘린더', '커뮤니티'];
 
 const { width, height } = Dimensions.get('window');
 

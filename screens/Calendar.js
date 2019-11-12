@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
-import { items } from '../constants/items';
-import CalendarBlock from '../components/CalendarBlock';
+import HaksaCalendar from '../components/HaksaCalendar';
 
 export default class CalendarCUK extends React.Component {
   constructor(props) {
@@ -14,7 +13,7 @@ export default class CalendarCUK extends React.Component {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ backgroundColor: 'transparent' }} />
-        <CalendarBlock />
+        <HaksaCalendar />
       </View>
     );
   }
@@ -22,6 +21,7 @@ export default class CalendarCUK extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#EAEAEA'
   }
 });

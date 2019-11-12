@@ -9,7 +9,7 @@ import {
   SafeAreaView,
   TouchableOpacity
 } from 'react-native';
-import MainInfo from '../components/MainInfo';
+import MainTable from '../components/MainTable';
 import LinkTable from '../components/LinkTable';
 import BusBtnTable from '../components/BusBtnTable';
 import FoodBtnTable from '../components/FoodBtnTable';
@@ -38,7 +38,7 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <SafeAreaView style={{ backgroundColor: 'transparent' }} />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Header />
+          <Header navigation={this.props.navigation} />
           <Modal
             visible={this.state.modalVisible}
             transparent={true}
@@ -73,7 +73,7 @@ export default class Home extends React.Component {
               </View>
             </View>
           </Modal>
-          <MainInfo
+          <MainTable
             openBusModal={() => this.openBusModal()}
             openFoodModal={() => this.openFoodModal()}
           />

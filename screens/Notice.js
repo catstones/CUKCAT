@@ -17,7 +17,7 @@ export default class Notice extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 5,
+    paddingTop: 8,
     alignItems: 'center'
   }
 });

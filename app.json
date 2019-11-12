@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "0.3.0",
+    "version": "0.5.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,7 +24,7 @@
     "android": {
       "package": "com.catstone.cukcat",
       "googleServicesFile": "./google-services.json",
-      "versionCode": 4
+      "versionCode": 5
     }
   }
 }

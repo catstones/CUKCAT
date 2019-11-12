@@ -6,7 +6,8 @@ import {
   Text,
   FlatList,
   AsyncStorage,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal
 } from 'react-native';
 import _ from 'underscore';
 
@@ -17,35 +18,31 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 const db = firebaseApp.firestore();
+const now = new Date();
+const oneWeekAgo = new Date(now - 604800000);
 
 export default class NoticeList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       noticeItem: [],
-      noticeType: '최근공지',
-      modalVisible: false
+      noticeType: '최근공지'
     };
   }
-  async saveStorage(data) {
-    let storage = await AsyncStorage.getItem('Notice');
-    if (!storage) {
-      storage = [];
-    } else {
-      storage = JSON.parse(storage);
-    }
-    storage.unshift(data);
-    await AsyncStorage.setItem('Notice', JSON.stringify(storage));
-  }
   getFireBaseData() {
-    db.collection('Notice').onSnapshot(querySnapshot => {
-      let newList = [];
-      querySnapshot.forEach(doc => {
-        newList.push({ ...doc.data(), key: doc.id.toString() });
+    db.collection('Notice')
+      .where('writtenAt', '<=', now)
+      .where('writtenAt', '>=', oneWeekAgo)
+      .get()
+      .then(querySnapshot => {
+        console.log(querySnapshot.size);
+        let newList = [];
+        querySnapshot.forEach(doc => {
+          newList.push({ ...doc.data(), key: doc.id.toString() });
+        });
+        newList = _.sortBy(newList, 'writtenAt').reverse();
+        this.setState({ noticeItem: newList });
       });
-      newList = _.sortBy(newList, 'writtenAt').reverse();
-      this.setState({ noticeItem: newList });
-    });
   }
   _handlePressButtonAsync = async url => {
     await WebBrowser.openBrowserAsync(url);
@@ -64,8 +61,12 @@ export default class NoticeList extends React.Component {
           ></FontAwesome>
           <View
             style={{
-              width: Math.floor(width * 0.8)
+              width: Math.floor(width * 0.8),
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end'
             }}
+            onPress={() => this.setState({ modalVisible: true })}
           >
             <Text
               style={{
@@ -76,6 +77,10 @@ export default class NoticeList extends React.Component {
               }}
             >
               {this.state.noticeType}
+            </Text>
+            <Text style={styles.itemWrittenAt}>
+              ※ {oneWeekAgo.toISOString().substr(0, 10)} ~
+              {now.toISOString().substr(0, 10)}
             </Text>
           </View>
         </View>
