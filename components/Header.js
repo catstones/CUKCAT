@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   View,
   Text,
   Dimensions,
-  TouchableOpacity
-} from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+  TouchableOpacity,
+} from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export default class Header extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class Header extends React.Component {
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>CUKCAT</Text>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('About')}
+          onPress={() => this.props.navigation.navigate("About")}
         >
           <MaterialIcons
             name="help"
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     height: Math.floor(height * 0.07),
     paddingLeft: Math.floor(width * 0.06),
     paddingRight: Math.floor(width * 0.06),
-    backgroundColor: 'transparent',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center'
+    backgroundColor: "transparent",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignItems: "center",
   },
   headerTitle: {
-    color: '#0C2E86',
+    color: "#0C2E86",
     fontSize: Math.floor(width * 0.065),
-    fontWeight: 'bold',
-    fontFamily: 'Roboto-Bold'
-  }
+    fontWeight: "bold",
+    fontFamily: "Roboto-Bold",
+  },
 });

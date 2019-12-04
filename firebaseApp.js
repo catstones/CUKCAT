@@ -1,6 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import keys from './constants/keys';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import keys from "./constants/keys";
 
 try {
   firebase.initializeApp(keys);

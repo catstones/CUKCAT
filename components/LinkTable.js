@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StyleSheet,
@@ -6,18 +6,18 @@ import {
   Text,
   Dimensions,
   ScrollView,
-  Platform
-} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+  Platform,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+import * as WebBrowser from "expo-web-browser";
 import {
   mainLink,
   libraryLink,
   dormitoryLink,
-  haksaLink
-} from '../constants/links';
+  haksaLink,
+} from "../constants/links";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export default class LinkTable extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class LinkTable extends React.Component {
   }
   _handlePressButtonAsync = async url => {
     await WebBrowser.openBrowserAsync(url, {
-      showInRecents: true
+      showInRecents: true,
     });
   };
   rederRowTable(linkRow, index) {
@@ -58,7 +58,7 @@ export default class LinkTable extends React.Component {
         pagingEnabled={true}
         // snapToAlignment={'center'}
         snapToInterval={Math.floor(width * 0.825)}
-        decelerationRate={Platform.OS === 'android' ? 0.9 : 0.2}
+        decelerationRate={Platform.OS === "android" ? 0.9 : 0.2}
       >
         <View style={[styles.linkTableContainer]}>
           <View style={styles.linkTableTitleContainer}>
@@ -88,7 +88,7 @@ export default class LinkTable extends React.Component {
         <View
           style={[
             styles.linkTableContainer,
-            { marginRight: Math.floor(width * 0.05) }
+            { marginRight: Math.floor(width * 0.05) },
           ]}
         >
           <View style={styles.linkTableTitleContainer}>
@@ -109,50 +109,50 @@ const styles = StyleSheet.create({
     marginTop: Math.floor(width * 0.05), //Done
     marginBottom: Math.floor(width * 0.05), //Done
     marginLeft: Math.floor(width * 0.05), //Done
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
     borderRadius: 22,
     borderWidth: 1,
-    borderColor: '#D3D3D3',
-    alignItems: 'center',
-    backgroundColor: '#FFF'
+    borderColor: "#D3D3D3",
+    alignItems: "center",
+    backgroundColor: "#FFF",
   },
   rowTable: {
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingTop: Math.floor(width * 0.06), //Done
     width: Math.floor(width * 0.8), //Done
-    justifyContent: 'flex-start'
+    justifyContent: "flex-start",
   },
   linkArea: {
     width: Math.floor(width * 0.16), //Done
     height: Math.floor(width * 0.2), //Done
     marginLeft: (Math.floor(width * 0.8) - Math.floor(width * 0.16) * 3) / 4, //Done
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   linkBtn: {
     width: Math.floor(width * 0.15), //Done
     height: Math.floor(width * 0.15), //Done
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: Math.floor(width * 0.15) //Done
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: Math.floor(width * 0.15), //Done
   },
   linkText: {
     paddingTop: Math.floor(width * 0.018), //Done
     fontSize: Math.floor(width * 0.029), //Done
-    color: '#656565',
-    fontWeight: 'bold'
+    color: "#656565",
+    fontWeight: "bold",
   },
   linkTableTitleContainer: {
     borderBottomWidth: 1,
-    borderBottomColor: '#D3D3D3'
+    borderBottomColor: "#D3D3D3",
   },
   linkTableTitle: {
     fontSize: Math.floor(width * 0.04), //Done
     height: Math.floor(width * 0.13), //Done
     width: Math.floor(width * 0.7), //Done
-    fontWeight: 'bold',
+    fontWeight: "bold",
     padding: Math.floor(width * 0.028), //Done
     paddingTop: Math.floor(width * 0.05), //Done
-    color: '#6A6A6A'
-  }
+    color: "#6A6A6A",
+  },
 });

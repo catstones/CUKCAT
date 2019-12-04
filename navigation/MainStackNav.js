@@ -1,26 +1,26 @@
-import React from 'react';
-import { Dimensions, View, Text } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import React from "react";
+import { Dimensions, View, Text } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import BottomTabNav from './BottomTabNav';
-import About from '../screens/About';
+import BottomTabNav from "./BottomTabNav";
+import About from "../screens/About";
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 
 const MainStackNav = createStackNavigator(
   {
     BottomTabNav: {
       screen: BottomTabNav,
       navigationOptions: () => ({
-        header: null
-      })
+        header: null,
+      }),
     },
     About: {
-      screen: About
-    }
+      screen: About,
+    },
   },
   {
-    headerLayoutPreset: 'center'
+    headerLayoutPreset: "center",
   }
 );
 

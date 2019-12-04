@@ -11,7 +11,7 @@ export default class HaksaCalendar extends React.Component {
     super(props);
     this.state = {
       haksaItems: [],
-      locked: true
+      locked: true,
     };
   }
   componentDidMount() {
@@ -32,7 +32,7 @@ export default class HaksaCalendar extends React.Component {
             width: Math.floor(width * 0.8),
             height: Math.floor(width * 0.85),
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <Text style={{ fontSize: 25, color: "#828282" }}>일정이 없어요</Text>
@@ -82,7 +82,7 @@ export default class HaksaCalendar extends React.Component {
             todayTextColor: "#1AC7C3",
             monthTextColor: "black",
             indicatorColor: "#0C2E86",
-            arrowColor: "black"
+            arrowColor: "black",
           }}
           markedDates={markedHaksa}
           hideArrows={false}
@@ -91,7 +91,7 @@ export default class HaksaCalendar extends React.Component {
           style={{
             backgroundColor: "#EAEAEA",
             flex: 1,
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           {this.renderHaksaList(this.state.haksaItems)}
@@ -107,13 +107,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     marginTop: 20,
     borderRadius: 5,
-    padding: 5
+    padding: 5,
   },
   haksaTimeContainer: {
     width: "100%",
     height: Math.floor(width * 0.065),
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   haksaTimeBlock: {
     width: Math.floor(width * 0.25),
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f0efed",
-    padding: 5
+    padding: 5,
   },
   haksaTimeText: {},
   haksaContentContainer: {
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     height: Math.floor(width * 0.2),
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   haksaTypeBlock: {
     width: Math.floor(width * 0.17),
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     borderRadius: Math.floor(width * 0.17),
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f7dc8f"
+    backgroundColor: "#f7dc8f",
   },
   haksaTypeText: {},
   haksaTitleBlock: {
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     height: Math.floor(width * 0.14),
     padding: 5,
     alignItems: "flex-start",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  haksaTitleText: {}
+  haksaTitleText: {},
 });

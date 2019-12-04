@@ -1,32 +1,32 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from "react-navigation";
 
-import Home from '../screens/Home';
-import Notice from '../screens/Notice';
-import Calendar from '../screens/Calendar';
-import Community from '../screens/Community';
-import TabBar from '../components/TabBar';
+import Home from "../screens/Home";
+import Notice from "../screens/Notice";
+import Calendar from "../screens/Calendar";
+import Community from "../screens/Community";
+import TabBar from "../components/TabBar";
 
 const BottomTabNav = createBottomTabNavigator(
   {
     Home: {
-      screen: Home
+      screen: Home,
     },
     Notice: {
-      screen: Notice
+      screen: Notice,
     },
     Calendar: {
-      screen: Calendar
+      screen: Calendar,
     },
     Community: {
-      screen: Community
-    }
+      screen: Community,
+    },
   },
   {
     tabBarComponent: TabBar,
     tabBarOptions: {
-      activeTintColor: '#0C2E86',
-      inactiveTintColor: '#ddd'
-    }
+      activeTintColor: "#0C2E86",
+      inactiveTintColor: "#ddd",
+    },
   }
 );
 

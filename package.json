@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "format": "npx prettier --write \"**/*.js\""
   },
   "dependencies": {
     "expo": "^35.0.0",
@@ -25,7 +26,8 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.0.0"
+    "babel-preset-expo": "^7.0.0",
+    "prettier": "1.19.1"
   },
   "private": true
 }

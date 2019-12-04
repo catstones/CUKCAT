@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   View,
   StyleSheet,
   TouchableOpacity,
-  Dimensions
-} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+  Dimensions,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
-const tabBarIcon = ['home', 'bell', 'calendar-o', 'group'];
-const tabBarLabel = ['홈', '공지', '캘린더', '커뮤니티'];
+const tabBarIcon = ["home", "bell", "calendar-o", "group"];
+const tabBarLabel = ["홈", "공지", "캘린더", "커뮤니티"];
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const tabBarHeight = Math.floor(height / 10);
 const fontSize = Math.floor(tabBarHeight / 6);
@@ -40,7 +40,7 @@ const TabBar = props => {
               style={{
                 color: tintColor,
                 fontSize,
-                fontFamily: 'Roboto-Medium'
+                fontFamily: "Roboto-Medium",
               }}
             >
               {tabBarLabel[routeIndex]}
@@ -54,19 +54,19 @@ const TabBar = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     height: tabBarHeight,
     borderTopWidth: 1,
-    borderTopColor: '#D6D6D6',
-    backgroundColor: '#FFF'
+    borderTopColor: "#D6D6D6",
+    backgroundColor: "#FFF",
   },
   tabButton: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: Math.floor(width * 0.01)
-  }
+    justifyContent: "center",
+    alignItems: "center",
+    margin: Math.floor(width * 0.01),
+  },
 });
 
 export default TabBar;

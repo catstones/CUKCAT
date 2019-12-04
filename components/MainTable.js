@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StyleSheet,
   Dimensions,
   Text,
-  TouchableOpacity
-} from 'react-native';
+  TouchableOpacity,
+} from "react-native";
 import {
   FontAwesome,
   MaterialCommunityIcons,
-  MaterialIcons
-} from '@expo/vector-icons';
-import ProgressCircle from 'react-native-progress-circle';
-import * as WebBrowser from 'expo-web-browser';
+  MaterialIcons,
+} from "@expo/vector-icons";
+import ProgressCircle from "react-native-progress-circle";
+import * as WebBrowser from "expo-web-browser";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 let now = new Date();
 let endDay = new Date(2019, 11, 13);
 
@@ -24,14 +24,14 @@ export default class MainTable extends React.Component {
     this.state = {
       dDay: null,
       mainUrl: {
-        cyberCampus: 'https://e-cyber.catholic.ac.kr',
-        trinity: 'https://uportal.catholic.ac.kr/sso/jsp/sso/ip/login_form.jsp'
-      }
+        cyberCampus: "https://e-cyber.catholic.ac.kr",
+        trinity: "https://uportal.catholic.ac.kr/sso/jsp/sso/ip/login_form.jsp",
+      },
     };
   }
   _handlePressButtonAsync = async url => {
     await WebBrowser.openBrowserAsync(url, {
-      showInRecents: true
+      showInRecents: true,
     });
   };
   getDateTime() {
@@ -46,7 +46,7 @@ export default class MainTable extends React.Component {
   }
   componentDidMount() {
     this.setState({
-      dDay: this.getDateTime()
+      dDay: this.getDateTime(),
     });
   }
   render() {
@@ -74,7 +74,7 @@ export default class MainTable extends React.Component {
             <Text
               style={{
                 fontSize: Math.floor(width * 0.048),
-                fontWeight: 'bold'
+                fontWeight: "bold",
               }}
             >
               {this.state.dDay}일
@@ -100,8 +100,8 @@ export default class MainTable extends React.Component {
                   styles.quickLinkTitle,
                   {
                     fontSize: Math.floor(width * 0.032),
-                    color: '#5D7BBE'
-                  }
+                    color: "#5D7BBE",
+                  },
                 ]}
               >
                 사이버캠퍼스
@@ -121,7 +121,10 @@ export default class MainTable extends React.Component {
               <Text
                 style={[
                   styles.quickLinkTitle,
-                  { fontSize: Math.floor(width * 0.033), color: '#1AC7C3' }
+                  {
+                    fontSize: Math.floor(width * 0.033),
+                    color: "#1AC7C3",
+                  },
                 ]}
               >
                 트리니티
@@ -141,7 +144,10 @@ export default class MainTable extends React.Component {
               <Text
                 style={[
                   styles.quickLinkTitle,
-                  { fontSize: Math.floor(width * 0.033), color: '#737373' }
+                  {
+                    fontSize: Math.floor(width * 0.033),
+                    color: "#737373",
+                  },
                 ]}
               >
                 버스정보
@@ -159,7 +165,10 @@ export default class MainTable extends React.Component {
               <Text
                 style={[
                   styles.quickLinkTitle,
-                  { fontSize: Math.floor(width * 0.033), color: '#254392' }
+                  {
+                    fontSize: Math.floor(width * 0.033),
+                    color: "#254392",
+                  },
                 ]}
               >
                 학식정보
@@ -176,54 +185,54 @@ const styles = StyleSheet.create({
   mainInfoContainer: {
     flex: 1,
     height: Math.floor(width * 0.48),
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#FBFBFB',
-    flexDirection: 'row',
-    padding: Math.floor(width * 0.05)
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#FBFBFB",
+    flexDirection: "row",
+    padding: Math.floor(width * 0.05),
   },
   dateCounterContainer: {
     width: Math.floor(width * 0.432),
     height: Math.floor(width * 0.432),
     borderRadius: 21,
     borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderColor: "#D3D3D3",
     padding: 3,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#FFF'
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#FFF",
   },
   dateCounterRowTitle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   dateCounterTitle: {
     fontSize: Math.floor(width * 0.045),
-    fontWeight: 'bold',
-    color: '#6A6A6A'
+    fontWeight: "bold",
+    color: "#6A6A6A",
   },
   quickLinkContainer: {
     height: Math.floor(width * 0.432),
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
   },
   quickRowTable: {
     width: Math.floor(width * 0.442),
-    justifyContent: 'space-between',
-    flexDirection: 'row'
+    justifyContent: "space-between",
+    flexDirection: "row",
   },
   quickLinkBtn: {
     width: Math.floor(width * 0.208),
     height: Math.floor(width * 0.208),
     borderRadius: 17,
     borderWidth: 1,
-    borderColor: '#D3D3D3',
-    backgroundColor: '#FFF',
+    borderColor: "#D3D3D3",
+    backgroundColor: "#FFF",
     paddingTop: Math.floor(width * 0.016),
-    justifyContent: 'space-around',
-    alignItems: 'center'
+    justifyContent: "space-around",
+    alignItems: "center",
   },
   quickLinkTitle: {
-    fontWeight: 'bold'
-  }
+    fontWeight: "bold",
+  },
 });

@@ -10,5 +10,7 @@ npm-debug.*
 web-build/
 web-report/
 
+# use yarn instead of npm
+
 # firebase
 constants/keys.js

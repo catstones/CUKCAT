@@ -1,36 +1,31 @@
-import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { developers } from '../constants/items';
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { about } from "../constants/items";
 
-export default class About extends React.Component {
-  renderRowCircle() {}
-  renderDevelLog(project, index) {
-    console.log(project);
-    return (
-      <View style={styles.develogContainer} key={index}>
-        <View>
-          <Text>{project.version}</Text>
-        </View>
-        <View>
-          <View></View>
-        </View>
-      </View>
-    );
-  }
-  render() {
-    return (
-      <View style={styles.aboutContainer}>
-        {developers.map((project, index) =>
-          this.renderDevelLog(project, index)
-        )}
-      </View>
-    );
-  }
-}
+const developers = about[0];
+
+const renderMember = ({ name, role }) => (
+  <View key={name}>
+    <Text>
+      {name}: {role}
+    </Text>
+  </View>
+);
+
+export default () => (
+  <View style={styles.aboutContainer}>
+    <Text>{developers.version}</Text>
+
+    <View>{developers.members.map(renderMember)}</View>
+
+    <Text>깔아주셔서 감사합니다.</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   aboutContainer: {
     flex: 1,
-    alignItems: 'center'
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
