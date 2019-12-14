@@ -17,11 +17,18 @@ const MainStackNav = createStackNavigator(
     },
     About: {
       screen: About,
+      navigationOptions: () => ({
+        title: "About",
+        headerStyle: {
+          height: 40,
+        },
+        headerLayoutPreset: "center",
+      }),
     },
   },
   {
     headerLayoutPreset: "center",
-  }
+  },
 );
 
 export default createAppContainer(MainStackNav);
