@@ -4,8 +4,8 @@
     "slug": "CUKCAT",
     "privacy": "public",
     "sdkVersion": "35.0.0",
-    "platforms": ["ios", "android", "web"],
-    "version": "0.5.0",
+    "platforms": ["ios"],
+    "version": "19.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,13 +18,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "com.catston.cukcat"
-    },
-    "android": {
-      "package": "com.catstone.cukcat",
-      "googleServicesFile": "./google-services.json",
-      "versionCode": 5
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sangwoo.cuk"
     }
   }
 }
